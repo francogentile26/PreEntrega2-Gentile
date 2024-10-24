@@ -1,16 +1,23 @@
+// NavBar.jsx
 import React from 'react';
-import CartWidget from './cartwidget';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo.jpg'; // Importa la imagen
 
 const NavBar = () => {
   return (
-    <nav style={{ padding: '10px', backgroundColor: '#f8f9fa', display: 'flex', justifyContent: 'space-between' }}>
-      <h1>Componentes Store</h1>
-      <ul style={{ listStyle: 'none', display: 'flex', gap: '15px' }}>
-        <li><a href="#">Categoría 1</a></li>
-        <li><a href="#">Categoría 2</a></li>
-        <li><a href="#">Categoría 3</a></li>
+    <nav>
+      <div className="brand">
+        <img src={logo} alt="GamerStore logo" className="logo" /> {/* Usa la imagen importada */}
+        <h1>GamerStore</h1>
+      </div>
+      <ul>
+        <li><Link to="/">Inicio</Link></li>
+        <li><Link to="/category/monitores">Monitores</Link></li>
+        <li><Link to="/category/placas-de-video">Placas de Video</Link></li>
+        <li><Link to="/category/procesadores">Procesadores</Link></li>
+        <li><Link to="/category/gabinetes">Gabinetes</Link></li>
+        <li><Link to="/category/perifericos">Periféricos</Link></li>
       </ul>
-      <CartWidget />
     </nav>
   );
 };

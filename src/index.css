@@ -4,3 +4,18 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/* styles.css */
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand h1 {
+  margin-left: 10px;
+}
+
+.logo {
+  width: 50px; /* Ajusta el tamaño de la imagen */
+  height: 50px;
+  object-fit: cover;
+}
