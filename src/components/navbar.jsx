@@ -1,26 +1,26 @@
-// NavBar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.jpg'; // Importa la imagen
+import { useCartContext } from '../context/cartcontext';
 
-const NavBar = () => {
+const Navbar = () => {
+  const { cart } = useCartContext();
+  
   return (
-    <nav>
-      <div className="brand">
-        <img src={logo} alt="GamerStore logo" className="logo" /> {/* Usa la imagen importada */}
-        <h1>GamerStore</h1>
+    <nav style={{ backgroundColor: '#333', color: '#fff', padding: '10px', display: 'flex', justifyContent: 'space-between' }}>
+      <Link to="/" style={{ color: '#fff', textDecoration: 'none', fontSize: '24px' }}>GamerStore</Link>
+      <div>
+        <Link to="/category/monitores" style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }}>Monitores</Link>
+        <Link to="/category/placas-de-video" style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }}>Placas de Video</Link>
+        <Link to="/category/procesadores" style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }}>Procesadores</Link>
       </div>
-      <ul>
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/category/monitores">Monitores</Link></li>
-        <li><Link to="/category/placas-de-video">Placas de Video</Link></li>
-        <li><Link to="/category/procesadores">Procesadores</Link></li>
-        <li><Link to="/category/gabinetes">Gabinetes</Link></li>
-        <li><Link to="/category/perifericos">Periféricos</Link></li>
-      </ul>
+      <Link to="/cart" style={{ color: '#fff', textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
+        🛒 ({cart.length})
+      </Link>
     </nav>
   );
 };
 
-export default NavBar;
+export default Navbar;
+
+
 
